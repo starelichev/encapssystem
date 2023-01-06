@@ -1,0 +1,40 @@
+.mainHeader {
+    margin: 10px;
+    text-align: center;
+    padding: 10px;
+    height: 100px;
+    background-color: lightgrey;
+    border-radius: 15px;
+}
+
+.mainHeader nav {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.mainHeader a {
+    transition: all .2s linear;
+    border-bottom: 2px solid transparent;
+    font-size: 18px;
+
+    display: inline-block;
+    margin: 0 10px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.mainHeader a:hover {
+    color: #d15700
+}
+
+.btn {
+    background-color: crimson;
+}
+
+.active {
+    color: crimson;
+    font-weight: 600;
+}

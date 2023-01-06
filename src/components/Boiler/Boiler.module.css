@@ -1,0 +1,34 @@
+.myBoiler {
+    width: 250px;
+    height: 230px;
+    border-radius: 10px;
+    background-color: white;
+    margin: 10px;
+    display: inline-block;
+}
+
+.indicator {
+    width: 30px;
+    height: 230px;
+    background-color: green;
+    float: right;
+}
+
+.myBoiler h4 {
+    padding-top: 10px;
+    padding-left: 15px;
+}
+
+.nameDiv {
+    width: 50%;
+    float: left;
+}
+
+.numDiv {
+    width: 30%;
+    float: right;
+}
+
+.MainDiv h2{
+    margin-left: 90px;
+}

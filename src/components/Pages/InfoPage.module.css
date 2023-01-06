@@ -1,0 +1,32 @@
+.headFirst {
+    justify-content: center;
+    margin-top: 15px;
+}
+
+.headSecond {
+    justify-content: center;
+    margin-top: 15px;
+}
+
+.headThirdOne {
+    float: left;
+    text-align: center;
+    background-color: aliceblue;
+    width: 70%;
+    border-right: 1px solid #000;
+}
+
+.headThirdTwo {
+    float: left;
+    text-align: center;
+    background-color: aliceblue;
+    width: 15%;
+    border-right: 1px solid #000;
+}
+
+.headThirdThree {
+    float: left;
+    text-align: center;
+    background-color: aliceblue;
+    width: 15%;
+}
