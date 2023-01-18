@@ -55,7 +55,7 @@ export const Header = ({ isLoggedIn, setIsLoggedIn, userName, setIsAdmin }) => {
                                 <Input name="password" value={password} onChange={event => setPassword(event.target.value)} placeholder="Пароль" style={ {margin: "5px"} }/>
                             </Modal>
                             Добро пожаловать, &nbsp;<strong>{userName}</strong>
-                            {isAuthOc === 'Вы авторизированы' ? <></>
+                            {isAuthOc === 'Вы авторизированы' ? <></> // Не забыть вырезать кнопку авторизации в овенклауде перед деплоем
                             : <Button onClick={showModal} style={{marginRight: "10px", marginLeft: "10px"}} type="primary">Авторизация в OC</Button>
                             }
                             <NavLink

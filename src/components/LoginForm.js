@@ -8,7 +8,7 @@ const Login = ( { setIsLoggedIn, setUserName } ) => {
     const [login, setLogin] = useState("")
     const [password, setPassword] = useState("")
     const handleLogin = () => {
-        if (login === 'Matador' && password === 'Matador1980') {
+        if (login === 'Matador' && password === 'Matador1980') { // сделать внешнюю авторизацию на беке (не привязанную к овенклауду)
             localStorage.setItem('isLoggedIn', true);
             localStorage.setItem('userName', login);
 
