@@ -82,7 +82,7 @@ const MainPage = ( {isLoggedIn} ) => {
                                        </PrivateRoute>}/>
                         </Routes>
                     </>
-                    : <h1 style={{ padding: "50px", marginLeft: "190px" }}>Вы не авторизованы во внутренней системе!</h1>
+                    : <h1 style={{ padding: "50px" }}>Вы не авторизованы во внутренней системе!</h1>
                 }
             </div>
         </>
