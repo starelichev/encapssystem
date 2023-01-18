@@ -30,3 +30,10 @@
     background-color: aliceblue;
     width: 15%;
 }
+
+.divButton {
+    border-radius: 50px;
+    width: 175px;
+    height: 45px;
+    font-size: 18px;
+}

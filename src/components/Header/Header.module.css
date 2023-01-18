@@ -1,16 +1,14 @@
 .mainHeader {
-    margin: 10px;
     text-align: center;
-    padding: 10px;
+    padding: 35px;
     height: 100px;
-    background-color: lightgrey;
-    border-radius: 15px;
+    background-color: cornflowerblue;
 }
 
 .mainHeader nav {
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: right;
 }
 
 .mainHeader a {

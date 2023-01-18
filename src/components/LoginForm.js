@@ -8,12 +8,17 @@ const Login = ( { setIsLoggedIn, setUserName } ) => {
     const [login, setLogin] = useState("")
     const [password, setPassword] = useState("")
     const handleLogin = () => {
-        localStorage.setItem('isLoggedIn', true);
-        localStorage.setItem('userName', login);
+        if (login === 'Matador' && password === 'Matador1980') {
+            localStorage.setItem('isLoggedIn', true);
+            localStorage.setItem('userName', login);
 
-        setIsLoggedIn(true);
-        setUserName(login)
-        navigate('/');
+            setIsLoggedIn(true);
+            setUserName(login)
+            navigate('/');
+        }
+        else {
+            window.alert('Неверный логин или пароль!')
+        }
     }
 
         return (

@@ -1,46 +1,26 @@
-import React, {useEffect} from 'react';
+import React from 'react';
 import {Table} from "antd";
-import {useDispatch, useSelector} from "react-redux";
-import {getParams} from "../../store/paramsSlice";
+import {useSelector} from "react-redux";
 
 const ParamsPage = () => {
-    const dispatch = useDispatch();
-    const values = useSelector(state => state.params.params)
+    const params = useSelector(state => state.params.params);
 
-    useEffect(() => {
-        dispatch(getParams())
-    }, []);
-
-    useEffect(() => {
-        const interval = setInterval(async () => {
-            dispatch(getParams())
-        }, 5000);
-        return () => clearInterval(interval);
-    }, []);
-
-    const dataSource = [...values];
+    const dataSource = [...params];
 
     const columns = [
         {
             title: 'Название',
-            dataIndex: 'device_id',
-            key: 'device_id',
-        },
-        {
-            title: 'Код параметра',
-            dataIndex: 'format',
-            key: 'format',
+            dataIndex: 'name',
         },
         {
             title: 'Значение',
             dataIndex: 'value',
-            key: 'value',
         },
     ];
 
     return (
         <>
-            <Table columns={columns} dataSource={dataSource} bordered/>
+            <Table rowKey="device_id" pagination={false}  columns={columns} dataSource={dataSource} bordered style={ {backgroundColor: "white"} }/>
         </>
     );
 };

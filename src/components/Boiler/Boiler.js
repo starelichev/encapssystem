@@ -1,24 +1,27 @@
-import React, {useEffect} from 'react';
+import React, {useEffect, useRef, useState} from 'react';
 import styles from  './Boiler.module.css'
 import {useNavigate} from "react-router-dom";
-
-import {getParams} from "../../store/paramsSlice";
-import {useDispatch, useSelector} from "react-redux";
+import {useSelector} from "react-redux";
+import {Button} from "antd";
 
 const Boiler = () => {
-    const dispatch = useDispatch();
-    const values = useSelector(state => state.params.params.map(val => val.value))
+    const [iconColor, setIconColor] = useState('');
+    const localValues = useRef(JSON.parse(localStorage.getItem("Восход")));
+    const values = useSelector(state => state.params.params?.filter(el => localValues.current.indexOf(el.name) !== -1));
+    const status = useSelector(state => state.plcStatus.plcStatus);
 
     useEffect(() => {
-        dispatch(getParams())
-    }, []);
-
-    useEffect(() => {
-        const interval = setInterval(async () => {
-            dispatch(getParams())
-        }, 5000);
-        return () => clearInterval(interval);
-    }, []);
+        if (status.status === 'online') {
+            setIconColor('green')
+        }
+        if (status.status === 'offline' || status.status === 'alarm') {
+            setIconColor('red')
+            console.log('set red')
+        }
+        if (status.status === 'unreadalarm') {
+            setIconColor('orange')
+        }
+    }, [status.status])
 
     let navigate = useNavigate();
     const gotoInfo = () => {
@@ -27,26 +30,18 @@ const Boiler = () => {
 
     return (
         <div>
-            <h2 onClick={() => gotoInfo()} style={ {marginLeft: "90px", cursor: "pointer"} }>Восход</h2>
+            <div onClick={() => gotoInfo()} className={styles.divBoilerName}><Button className={styles.divButton} type="primary">Восход</Button></div>
             <div className={styles.myBoiler}>
-                <div className={styles.indicator}/>
+                <div className={styles.indicator} style={ {backgroundColor: iconColor} }/>
                 <div className={styles.nameDiv}>
-                    <h4>P обр. сети</h4>
-                    <h4>P под. сети</h4>
-                    <h4>P котл. конт</h4>
-                    <h4>T под. сети</h4>
-                    <h4>Т обр. сети</h4>
-                    <h4>Т котл. конт</h4>
-                    <h4>U пиб</h4>
+                    {values.map(param => {
+                        return <h4>{param.shortname}</h4>
+                    })}
                 </div>
                 <div className={styles.numDiv}>
-                    <h4 style={ {color: "green"} }>{values[0]}</h4>
-                    <h4 style={ {color: "green"} }>{values[1]}</h4>
-                    <h4 style={ {color: "green"} }>{values[2]}</h4>
-                    <h4 style={ {color: "green"} }>{values[3]}</h4>
-                    <h4 style={ {color: "green"} }>{values[4]}</h4>
-                    <h4 style={ {color: "red"} }>{values[5]}</h4>
-                    <h4 style={ {color: "green"} }>{values[6]}</h4>
+                    {values.map(val => {
+                        return <h4>{val.value}</h4>
+                    })}
                 </div>
             </div>
         </div>

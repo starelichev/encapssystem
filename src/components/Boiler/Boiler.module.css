@@ -1,16 +1,19 @@
 .myBoiler {
-    width: 250px;
-    height: 230px;
-    border-radius: 10px;
+    width: 270px;
+    height: 240px;
+    border: 1px solid #CCCCCC;
     background-color: white;
-    margin: 10px;
+    margin-left: 70px;
+    margin-top: 15px;
     display: inline-block;
 }
 
 .indicator {
     width: 30px;
-    height: 230px;
-    background-color: green;
+    margin-top: -1px;
+    margin-right: -1px;
+    height: 240px;
+    border: 1px solid #CCCCCC;
     float: right;
 }
 
@@ -31,4 +34,18 @@
 
 .MainDiv h2{
     margin-left: 90px;
+}
+
+.divButton {
+    border-radius: 50px;
+    width: 100px;
+    height: 40px;
+    font-size: 18px;
+}
+
+.divBoilerName {
+    margin-left: 145px;
+    margin-right: 70px;
+    margin-top: 50px;
+    text-align: center;
 }
