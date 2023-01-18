@@ -5,7 +5,6 @@ import {Button, Input, Modal} from "antd";
 import React, {useState} from "react";
 import {useDispatch, useSelector} from "react-redux";
 import {authOc} from "../../store/authOcSlice";
-import {quit} from "../../store/authOcSlice";
 
 export const Header = ({ isLoggedIn, setIsLoggedIn, userName, setIsAdmin }) => {
     const isAuthOc = useSelector(state => state.authOc.auth)
@@ -28,10 +27,6 @@ export const Header = ({ isLoggedIn, setIsLoggedIn, userName, setIsAdmin }) => {
         }
         authDispatch(authOc(data));
         setIsModalOpen(false);
-    }
-
-    const onExit = () => {
-        authDispatch(quit());
     }
 
     const [isModalOpen, setIsModalOpen] = useState(false);

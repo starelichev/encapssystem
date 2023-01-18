@@ -20,12 +20,11 @@ const InfoPage = ( {isLoggedIn} ) => {
     const [graphsButtonStyle, setGraphsButtonStyle] = useState('');
     const timer = useSelector(state => state.counter.count);
     const params = useSelector(state => state.params.params.map(par => par.name));
-    const [isChecked, setIsChecked] = useState([...JSON.parse(localStorage.getItem("Восход"))]);
+    const [isChecked, setIsChecked] = useState(localStorage.getItem("Восход") ? [...JSON.parse(localStorage.getItem("Восход"))] : []);
     const initParams = useRef();
     initParams.current = params;
 
     const checkMyBox = (par) => {
-
         if (isChecked.includes(par)) {
             return true;
         }

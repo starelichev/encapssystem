@@ -7,7 +7,7 @@ import {Button} from "antd";
 const Boiler = () => {
     const [iconColor, setIconColor] = useState('');
     const localValues = useRef(JSON.parse(localStorage.getItem("Восход")));
-    const values = useSelector(state => state.params.params?.filter(el => localValues.current.indexOf(el.name) !== -1));
+    const values = useSelector(state => state.params.params?.filter(el => (localValues.current ? localValues.current.indexOf(el.name) !== -1 : '')));
     const status = useSelector(state => state.plcStatus.plcStatus);
 
     useEffect(() => {
