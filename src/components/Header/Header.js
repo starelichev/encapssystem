@@ -3,11 +3,10 @@ import styles from "./Header.module.css";
 import {MeetingRoom} from "@mui/icons-material";
 import {Button, Input, Modal} from "antd";
 import React, {useState} from "react";
-import {useDispatch, useSelector} from "react-redux";
+import {useDispatch} from "react-redux";
 import {authOc} from "../../store/authOcSlice";
 
 export const Header = ({ isLoggedIn, setIsLoggedIn, userName, setIsAdmin }) => {
-    const isAuthOc = useSelector(state => state.authOc.auth)
 
     const authDispatch = useDispatch();
     const [login, setLogin] = useState("")
@@ -50,7 +49,7 @@ export const Header = ({ isLoggedIn, setIsLoggedIn, userName, setIsAdmin }) => {
                                 <Input name="password" value={password} onChange={event => setPassword(event.target.value)} placeholder="Пароль" style={ {margin: "5px"} }/>
                             </Modal>
                             Добро пожаловать, &nbsp;<strong>{userName}</strong>
-                            {isAuthOc === 'Вы авторизированы' ? <></> // Не забыть вырезать кнопку авторизации в овенклауде перед деплоем
+                            {JSON.parse(localStorage.getItem("Auth")) ? <></> // Не забыть вырезать кнопку авторизации в овенклауде перед деплоем
                             : <Button onClick={showModal} style={{marginRight: "10px", marginLeft: "10px"}} type="primary">Авторизация в OC</Button>
                             }
                             <NavLink

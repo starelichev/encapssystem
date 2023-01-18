@@ -14,7 +14,6 @@ import {getEvent} from "../../store/eventSlice";
 import {getStatus} from "../../store/statusSlice";
 
 const MainPage = ( {isLoggedIn} ) => {
-    const isAuthOc = useSelector(state => state.authOc.auth);
     const dispatch = useDispatch();
     const status = useSelector(state => state.plcStatus.plcStatus);
     const [iconColor, setIconColor] = useState('');
@@ -59,12 +58,12 @@ const MainPage = ( {isLoggedIn} ) => {
     return (
         <>
             <div className={styles.div1}>
-                {isAuthOc === 'Вы авторизированы' ? <> <AlertOutlined style={ {marginTop: "53px", marginRight: "5px", color: iconColor} } />
+                {JSON.parse(localStorage.getItem("Auth")) ? <> <AlertOutlined style={ {marginTop: "53px", marginRight: "5px", color: iconColor} } />
                     <h3 style={ {marginTop: "50px"}}>Восход</h3> </> : <></> }
 
             </div>
             <div className={styles.div2}>
-                {isAuthOc === 'Вы авторизированы' ?
+                {JSON.parse(localStorage.getItem("Auth")) ?
                     <>
                         <div className={styles.myHr}></div>
                         <Routes>

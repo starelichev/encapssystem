@@ -8,8 +8,11 @@ export const authOc = createAsyncThunk(
             login: userdata.login,
             password: userdata.password,
         }
-        const response = axios.post('http://localhost:8081/api/login', data)
+        const response = await axios.post('http://localhost:8081/api/login', data)
             .then(response => response.data);
+        if (response === 'Вы авторизированы') {
+            localStorage.setItem('Auth', JSON.stringify(response));
+        }
         console.log(response)
         return response;
             });
