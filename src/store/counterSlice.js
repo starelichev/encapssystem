@@ -1,19 +1,17 @@
 import {createSlice} from "@reduxjs/toolkit";
+import dayjs from 'dayjs';
 
 const counterSlice = createSlice({
     name : 'params',
     initialState: {
-        count: 0,
+        dateCount: dayjs().format('ss'),
     },
     reducers: {
-        increment(state) {
-            state.count++
+        setDateNow(state) {
+            state.dateCount = dayjs().format('ss')
         },
-        setNull(state) {
-            state.count = 0
-        }
     },
 })
 
-export const { increment, setNull } = counterSlice.actions;
+export const { setDateNow, setCounter } = counterSlice.actions;
 export default counterSlice.reducer;

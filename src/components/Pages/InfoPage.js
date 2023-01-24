@@ -18,13 +18,14 @@ const InfoPage = ( {isLoggedIn} ) => {
     const [failuresButtonStyle, setFailuresButtonStyle] = useState('');
     const [eventsButtonStyle, setEventsButtonStyle] = useState('');
     const [graphsButtonStyle, setGraphsButtonStyle] = useState('');
-    const timer = useSelector(state => state.counter.count);
+    const timer = useSelector(state => state.counter.dateCount);
     const params = useSelector(state => state.params.params.map(par => par.name));
     const [isChecked, setIsChecked] = useState(localStorage.getItem("Восход") ? [...JSON.parse(localStorage.getItem("Восход"))] : []);
     const initParams = useRef();
     initParams.current = params;
 
     const checkMyBox = (par) => {
+
         if (isChecked.includes(par)) {
             return true;
         }
@@ -54,7 +55,7 @@ const InfoPage = ( {isLoggedIn} ) => {
         if (isChecked.length === 0) {
             window.alert('Колличество параметров не должно быть равно 0')
         }
-        else {
+        if (isChecked.length <= 7 && isChecked.length !== 0) {
             localStorage.removeItem('Восход');
             localStorage.setItem('Восход', JSON.stringify(isChecked));
             setIsModalOpen(false);
