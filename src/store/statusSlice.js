@@ -4,7 +4,7 @@ import axios from "axios";
 export const getStatus = createAsyncThunk(
     'status/getStatus',
     async function() {
-        const getStatus = await axios.get('http://localhost:8081/api/plc-status').then(res => res.data);
+        const getStatus = await axios.get('http://ads40.ru:8081/api/plc-status').then(res => res.data);
         console.log('refreshed status');
         return getStatus;
     }

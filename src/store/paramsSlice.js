@@ -4,7 +4,7 @@ import axios from "axios";
 export const getParams = createAsyncThunk(
     'params/getParams',
     async function() {
-        const getParams = await axios.get('http://localhost:8081/api/last-data-sensor').then(res => res.data);
+        const getParams = await axios.get('http://ads40.ru:8081/api/last-data-sensor').then(res => res.data);
         const getParamsWithShortName = getParams.map(par => {
             if (par.name === 'Уровень в баке химочищенной вод') {
                 return {...par, shortname: 'Ур. воды'}

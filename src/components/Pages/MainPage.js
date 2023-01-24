@@ -14,12 +14,10 @@ import {getEvent} from "../../store/eventSlice";
 import {getStatus} from "../../store/statusSlice";
 
 const MainPage = ( {isLoggedIn} ) => {
-    const isAuthOc = useSelector(state => state.authOc.auth);
     const dispatch = useDispatch();
     const status = useSelector(state => state.plcStatus.plcStatus);
     const [iconColor, setIconColor] = useState('');
     const timer = useSelector(state => state.counter.dateCount);
-    console.log(timer)
 
     useEffect(() => {
         const interval = setInterval(() => {
@@ -61,31 +59,26 @@ const MainPage = ( {isLoggedIn} ) => {
     return (
         <>
             <div className={styles.div1}>
-                {isAuthOc === 'Вы авторизированы' ? <> <AlertOutlined style={ {marginTop: "53px", marginRight: "5px", color: iconColor} } />
-                    <h3 style={ {marginTop: "50px"}}>Восход</h3> </> : <></> }
+                <AlertOutlined style={ {marginTop: "53px", marginRight: "5px", color: iconColor} } />
+                    <h3 style={ {marginTop: "50px"}}>Восход</h3>
 
             </div>
             <div className={styles.div2}>
-                {isAuthOc === 'Вы авторизированы' ?
-                    <>
-                        <div className={styles.myHr}></div>
-                        <Routes>
+                <div className={styles.myHr}></div>
+                <Routes>
 
-                            <Route path="/"
-                                   element={
-                                       <PrivateRoute isLoggedIn={isLoggedIn}>
-                                           <Boiler/>
-                                       </PrivateRoute>}/>
+                    <Route path="/"
+                           element={
+                               <PrivateRoute isLoggedIn={isLoggedIn}>
+                                   <Boiler/>
+                               </PrivateRoute>}/>
 
-                            <Route path="/info/*"
-                                   element={
-                                       <PrivateRoute isLoggedIn={isLoggedIn}>
-                                           <InfoPage isLoggedIn={isLoggedIn}/>
-                                       </PrivateRoute>}/>
-                        </Routes>
-                    </>
-                    : <h1 style={{ padding: "50px", marginLeft: "190px" }}>Вы не авторизованы во внутренней системе!</h1>
-                }
+                    <Route path="/info/*"
+                           element={
+                               <PrivateRoute isLoggedIn={isLoggedIn}>
+                                   <InfoPage isLoggedIn={isLoggedIn}/>
+                               </PrivateRoute>}/>
+                </Routes>
             </div>
         </>
     );
