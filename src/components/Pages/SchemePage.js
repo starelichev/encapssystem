@@ -9,6 +9,7 @@ import pipes from "../Images/pipes.png";
 import boilerFirst from "../Images/firefirst.png";
 import boilerSecond from "../Images/firesecond.png";
 import boilerThird from "../Images/firethird.png";
+import all from "../Images/all.png";
 import styles from "./ShemePage.module.css";
 import {Image} from "antd";
 
@@ -38,7 +39,7 @@ const SchemePage = () => {
     const FetchBoilerFirst = params.filter(param => param.device_id === "15270213")[0]?.value;
     const[boilerFirstParam, setBoilerFirstParam] = useState("");
     useEffect(() => {
-        if (FetchBoilerFirst > "0") {
+        if (FetchBoilerFirst > 0) {
             setBoilerFirstParam(boilerFirst)
         }
         else {
@@ -49,7 +50,7 @@ const SchemePage = () => {
     const FetchBoilerSecond= params.filter(param => param.device_id === "15270219")[0]?.value;
     const[boilerSecondParam, setBoilerSecondParam] = useState("");
     useEffect(() => {
-        if (FetchBoilerSecond > "0") {
+        if (FetchBoilerSecond > 0) {
             setBoilerSecondParam(boilerSecond)
         }
         else {
@@ -60,7 +61,7 @@ const SchemePage = () => {
     const FetchBoilerThird= params.filter(param => param.device_id === "15270231")[0]?.value;
     const[boilerThirdParam, setBoilerThirdParam] = useState("");
     useEffect(() => {
-        if (FetchBoilerThird > "0") {
+        if (FetchBoilerThird > 0) {
             setBoilerThirdParam(boilerThird)
         }
         else {
@@ -76,6 +77,7 @@ const SchemePage = () => {
             <Image src={boilerFirstParam} preview={false} rootClassName={styles.addImg}/>
             <Image src={boilerSecondParam} preview={false} rootClassName={styles.addImg}/>
             <Image src={boilerThirdParam} preview={false} rootClassName={styles.addImg}/>
+            <Image src={all} preview={false} rootClassName={styles.addImg}/>
         </div>
     );
 };
