@@ -11,9 +11,11 @@ import {useSelector} from "react-redux";
 import { useLocation } from 'react-router-dom';
 import {SettingOutlined} from "@ant-design/icons";
 import Checkbox from "antd/lib/checkbox/Checkbox";
+import SchemePage from "./SchemePage";
 
 const InfoPage = ( {isLoggedIn} ) => {
     let location = useLocation();
+    const [schemeButtonStyle, setSchemeButtonStyle] = useState('');
     const [paramsButtonStyle, setParamsButtonStyle] = useState('');
     const [failuresButtonStyle, setFailuresButtonStyle] = useState('');
     const [eventsButtonStyle, setEventsButtonStyle] = useState('');
@@ -94,6 +96,13 @@ const InfoPage = ( {isLoggedIn} ) => {
         else {
             setGraphsButtonStyle('')
         }
+
+        if (location.pathname === '/info/scheme') {
+            setSchemeButtonStyle('aquamarine')
+        }
+        else {
+            setSchemeButtonStyle('')
+        }
     }, [location])
 
     let navigate = useNavigate();
@@ -118,6 +127,10 @@ const InfoPage = ( {isLoggedIn} ) => {
         navigate('graph')
     }
 
+    const goToScheme = () => {
+        navigate('scheme')
+    }
+
     return (
         <div style={ {width: "100%"} }>
             <Row className={styles.headFirst}>
@@ -135,6 +148,7 @@ const InfoPage = ( {isLoggedIn} ) => {
             </Row>
             <hr style={ {marginTop: "15px"} }/>
             <div className={styles.headSecond}>
+                <Button onClick={() => goToScheme()} style={ {marginLeft: "15px", width: "200px", backgroundColor: schemeButtonStyle } }>Мнемосхема</Button>
                 <Button onClick={() => goToInfo()} style={ {marginLeft: "15px", width: "200px", backgroundColor: paramsButtonStyle } }>Параметры</Button>
                 <Button onClick={() => goToCrash()} style={ {marginLeft: "15px", width: "200px", backgroundColor: failuresButtonStyle} }>Аварии</Button>
                 <Button onClick={() => goToEvent()} style={ {marginLeft: "15px", width: "200px", backgroundColor: eventsButtonStyle} }>События</Button>
@@ -177,6 +191,11 @@ const InfoPage = ( {isLoggedIn} ) => {
                     <Route path="/graph" element={
                         <PrivateRoute isLoggedIn={isLoggedIn}>
                             <GraphPage/>
+                        </PrivateRoute>}/>
+
+                    <Route path="/scheme" element={
+                        <PrivateRoute isLoggedIn={isLoggedIn}>
+                            <SchemePage/>
                         </PrivateRoute>}/>
                 </Routes>
             </div>
