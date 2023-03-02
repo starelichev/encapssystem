@@ -1,9 +1,137 @@
-.addImg {
-    left: 20%;
-    margin-left: 1px;
+.Img {
     position: absolute;
+    left: 0;
 }
 
-.divStyle {
-    display: block;
+.div {
+    position: relative;
 }
+
+.tFirst {
+    position: absolute;
+    top: 19.1%;
+    left: 13.6%;
+    font-size: 0.7vw;
+    font-weight: bold;
+}
+
+.tSecond {
+    position: absolute;
+    top: 43.3%;
+    left: 13.6%;
+    font-size: 0.7vw;
+    font-weight: bold;
+}
+
+.tThird {
+    position: absolute;
+    top: 67.6%;
+    left: 13.6%;
+    font-size: 0.7vw;
+    font-weight: bold;
+}
+
+.returnPressure {
+    position: absolute;
+    top: 58.5%;
+    left: 34%;
+    font-size: 0.7vw;
+    font-weight: bold;
+}
+
+.boilerCircuit {
+    position: absolute;
+    top: 62.5%;
+    left: 38%;
+    font-size: 0.7vw;
+    font-weight: bold;
+}
+
+.boilerCircuitStaticFirst {
+    position: absolute;
+    top: 27.3%;
+    left: 35.4%;
+    font-size: 0.7vw;
+    font-weight: bold;
+}
+
+.boilerCircuitStaticSecond {
+    position: absolute;
+    top: 25.6%;
+    left: 49.8%;
+    font-size: 0.7vw;
+    font-weight: bold;
+}
+
+.boilerCircuitStaticThird {
+    position: absolute;
+    top: 81.1%;
+    left: 41.2%;
+    font-size: 0.7vw;
+    font-weight: bold;
+}
+
+.pumpDifference {
+    position: absolute;
+    top: 48.4%;
+    left: 59.3%;
+    font-size: 0.7vw;
+    font-weight: bold;
+}
+
+.boilerCircuitFive {
+    position: absolute;
+    top: 81.1%;
+    left: 61.9%;
+    font-size: 0.7vw;
+    font-weight: bold;
+}
+
+.boilerCircuitSeven {
+    position: absolute;
+    top: 48.4%;
+    left: 79.7%;
+    font-size: 0.7vw;
+    font-weight: bold;
+}
+
+.pressureBefore {
+    position: absolute;
+    top: 58.4%;
+    left: 79.7%;
+    font-size: 0.7vw;
+    font-weight: bold;
+}
+
+.tempFiling {
+    position: absolute;
+    top: 52.4%;
+    left: 82.9%;
+    font-size: 0.7vw;
+    font-weight: bold;
+}
+
+.tempFiling {
+    position: absolute;
+    top: 52.4%;
+    left: 82.9%;
+    font-size: 0.7vw;
+    font-weight: bold;
+}
+
+.tempReturn {
+    position: absolute;
+    top: 62.5%;
+    left: 83.2%;
+    font-size: 0.7vw;
+    font-weight: bold;
+}
+
+.rawWater {
+    position: absolute;
+    top: 68.4%;
+    left: 89.1%;
+    font-size: 0.7vw;
+    font-weight: bold;
+}
+
