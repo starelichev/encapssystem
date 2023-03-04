@@ -1,10 +1,11 @@
 import {createSlice, createAsyncThunk} from "@reduxjs/toolkit";
 import axios from "axios";
+import api from "../helpers/api";
 
 export const getStatus = createAsyncThunk(
     'status/getStatus',
     async function() {
-        const getStatus = await axios.get('http://localhost:8081/api/plc-status').then(res => res.data);
+        const getStatus = await axios.get(`${api}/api/plc-status`).then(res => res.data);
         console.log('refreshed status');
         return getStatus;
     }

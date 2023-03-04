@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 import LoginForm from "./components/LoginForm";
 import "./App.css"
 import {Header} from "./components/Header/Header";
@@ -11,19 +11,28 @@ import {NoMatch} from "./components/NoMatch/NoMatch";
 
 function App() {
 
-    const [isLoggedIn, setIsLoggedIn] = useState(localStorage.getItem('isLoggedIn') === 'true');
-    const [userName, setUserName] = useState(localStorage.getItem('userName'));
+    const [isLoggedIn, setIsLoggedIn] = useState(false);
 
+    useEffect(() => {
+        if (localStorage.getItem('userId') !== null && localStorage.getItem('jwt') !== null) {
+            setIsLoggedIn(true)
+        }
+        else {
+            setIsLoggedIn(false)
+        }
+    },[isLoggedIn])
+
+    console.log(isLoggedIn)
 
     return <div className="App">
-            <Header userName={userName} isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />
+            <Header isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />
             <hr/>
             <main>
                 <Routes>
                     <Route path="/login"
                     element={
                         <PublicRoute isLoggedIn={isLoggedIn}>
-                            <LoginForm setIsLoggedIn={setIsLoggedIn} setUserName={setUserName}/>
+                            <LoginForm setIsLoggedIn={setIsLoggedIn}/>
                         </PublicRoute>}
                     />
 

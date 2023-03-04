@@ -3,6 +3,7 @@ import { Line } from '@ant-design/plots';
 import {DatePicker, Select} from 'antd';
 import dayjs from 'dayjs';
 import axios from "axios";
+import api from "../../helpers/api";
 
 const GraphPage = () => {
     const format = 'YYYY-MM-DD HH:mm:ss';
@@ -16,7 +17,7 @@ const GraphPage = () => {
 
     useEffect(() => {
         const fetchData = async function() {
-            const getResponse = await axios.get('http://localhost:8081/api/device-list').then(response => response.data);
+            const getResponse = await axios.get(`${api}/api/device-list`).then(response => response.data);
             setParams([...getResponse])
         }
         fetchData()
@@ -31,7 +32,7 @@ const GraphPage = () => {
                 step: 1,
             };
 
-            const getResponse = await axios.post('http://localhost:8081/api/parameters/data', data).then(response => response.data);
+            const getResponse = await axios.post(`${api}/api/parameters/data`, data).then(response => response.data);
             graphData.current = getResponse[0].values.map(el => {return {time: el.d, value: parseFloat(el.v)}});
             setMinValue(Math.min(...graphData.current.map(value => value.value)));
             setMaxValue(Math.max(...graphData.current.map(value => value.value)));

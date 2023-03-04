@@ -1,10 +1,11 @@
 import {createSlice, createAsyncThunk} from "@reduxjs/toolkit";
 import axios from "axios";
+import api from "../helpers/api";
 
 export const getEventFailure = createAsyncThunk(
     'eventsFailure/getEventFailure',
     async function() {
-        const getEventFailure = await axios.get('http://localhost:8081/api/failure').then(res => res.data);
+        const getEventFailure = await axios.get(`${api}/api/failure`).then(res => res.data);
         console.log('refreshed events failure');
         return getEventFailure;
     }

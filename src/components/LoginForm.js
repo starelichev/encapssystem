@@ -2,24 +2,41 @@ import React, {useState} from 'react';
 import styles from './LoginForm.module.css'
 import {Input, Button} from "antd";
 import {useNavigate} from "react-router-dom";
+import axios from "axios";
+import authApi from "../helpers/authApi";
 
 const Login = ( { setIsLoggedIn, setUserName } ) => {
     let navigate = useNavigate();
     const [login, setLogin] = useState("")
     const [password, setPassword] = useState("")
-    const handleLogin = () => {
-        if (login === 'Matador' && password === 'Matador1980') { // сделать внешнюю авторизацию на беке (не привязанную к овенклауду)
-            localStorage.setItem('isLoggedIn', true);
-            localStorage.setItem('userName', login);
 
-            setIsLoggedIn(true);
-            setUserName(login)
-            navigate('/');
+    async function Auth(login, password) {
+        const data = {
+            username: login,
+            password
         }
-        else {
-            window.alert('Неверный логин или пароль!')
+
+        const response = await axios.post(`${authApi}/users/authenticate`, data)
+            .then(response => response.data).catch((response) => {
+                window.alert(response.response.data.message)
+            })
+
+        if (response !== undefined) {
+            if (response.id !== null && response.token !== null) {
+                localStorage.setItem('userId', JSON.stringify(response.id));
+                localStorage.setItem('jwt', JSON.stringify(response.token));
+                localStorage.setItem('name', JSON.stringify(response.firstName));
+                localStorage.setItem('lastName', JSON.stringify(response.lastName));
+                localStorage.setItem('role', JSON.stringify(response.role));
+                setIsLoggedIn(true);
+                navigate('/');
+            }
         }
     }
+
+    const handleLogin = () => {
+        Auth(login, password)
+        }
 
         return (
         <div>
