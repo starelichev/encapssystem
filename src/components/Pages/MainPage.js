@@ -12,6 +12,7 @@ import {getFailure} from "../../store/failureSlice";
 import {getParams} from "../../store/paramsSlice";
 import {getEvent} from "../../store/eventSlice";
 import {getStatus} from "../../store/statusSlice";
+import { clearInterval, setInterval} from 'worker-timers';
 
 const MainPage = ( {isLoggedIn} ) => {
     const dispatch = useDispatch();
