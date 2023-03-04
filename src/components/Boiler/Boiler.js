@@ -25,7 +25,7 @@ const Boiler = () => {
 
     let navigate = useNavigate();
     const gotoInfo = () => {
-        navigate('/info')
+        navigate('/info/scheme')
     }
 
     return (

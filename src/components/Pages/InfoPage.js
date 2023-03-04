@@ -135,7 +135,7 @@ const InfoPage = ( {isLoggedIn} ) => {
         <div style={ {width: "100%"} }>
             <Row className={styles.headFirst}>
                 <Col span={20}>
-                    <div onClick={() => goToMain()} style={ {marginLeft: "15px", cursor: "pointer"} }><Button className={styles.divButton} type="primary">Котельная восход</Button></div>
+                    <div onClick={() => goToMain()} style={ {marginLeft: "15px", cursor: "pointer"} }><Button className={styles.divButton} type="primary">На главную</Button></div>
                 </Col>
                 <Col span={4}>
                     <Row>

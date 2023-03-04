@@ -39,7 +39,7 @@ const EventFailurePage = () => {
 
     return (
         <>
-            <Table rowKey="id" pagination={false} columns={columns} dataSource={dataSource} bordered style={ {backgroundColor: "white"} }/>
+            <Table rowKey="id" pagination={true} columns={columns} dataSource={dataSource} bordered style={ {backgroundColor: "white"} }/>
         </>
     );
 };
