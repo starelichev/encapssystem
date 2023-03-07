@@ -162,7 +162,7 @@ const InfoPage = ( {isLoggedIn} ) => {
                             <>
                                 <div style={ {display: "flex", justifyContent: "space-between"} }>
                                     <p>{par}</p>
-                                    <Checkbox checked={checkMyBox(par)} onChange={() => {onChange(par)}}/>
+                                    <Checkbox key={par.device_id} checked={checkMyBox(par)} onChange={() => {onChange(par)}}/>
                                 </div>
                                 <hr/>
                             </>

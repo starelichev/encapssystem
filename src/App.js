@@ -22,8 +22,6 @@ function App() {
         }
     },[isLoggedIn])
 
-    console.log(isLoggedIn)
-
     return <div className="App">
             <Header isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />
             <hr/>

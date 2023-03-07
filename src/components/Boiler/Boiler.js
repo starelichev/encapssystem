@@ -35,12 +35,12 @@ const Boiler = () => {
                 <div className={styles.indicator} style={ {backgroundColor: iconColor} }/>
                 <div className={styles.nameDiv}>
                     {values.map(param => {
-                        return <h4>{param.shortname}</h4>
+                        return <h4 key={param.shortname}>{param.shortname}</h4>
                     })}
                 </div>
                 <div className={styles.numDiv}>
                     {values.map(val => {
-                        return <h4>{val.value}</h4>
+                        return <h4 key={val.shortname}>{val.value}</h4>
                     })}
                 </div>
             </div>
