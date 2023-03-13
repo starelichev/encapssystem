@@ -73,7 +73,7 @@
 
 .pumpDifference {
     position: absolute;
-    top: 48.4%;
+    top: 49.1%;
     left: 59.3%;
     font-size: 0.7vw;
     font-weight: bold;
@@ -89,7 +89,7 @@
 
 .boilerCircuitSeven {
     position: absolute;
-    top: 48.4%;
+    top: 49%;
     left: 79.7%;
     font-size: 0.7vw;
     font-weight: bold;
@@ -105,15 +105,7 @@
 
 .tempFiling {
     position: absolute;
-    top: 52.4%;
-    left: 82.9%;
-    font-size: 0.7vw;
-    font-weight: bold;
-}
-
-.tempFiling {
-    position: absolute;
-    top: 52.4%;
+    top: 53%;
     left: 82.9%;
     font-size: 0.7vw;
     font-weight: bold;

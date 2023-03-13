@@ -5,11 +5,12 @@ import waterPart1 from "../Images/water1.png";
 import waterPart2 from "../Images/water2.png";
 import waterPart3 from "../Images/water3.png";
 import waterPart4 from "../Images/water4.png";
-import pipes from "../Images/pipes.png";
 import boilerFirst from "../Images/firefirst.png";
 import boilerSecond from "../Images/firesecond.png";
 import boilerThird from "../Images/firethird.png";
+import pipes from "../Images/pipes.png";
 import all from "../Images/all.png";
+import add from "../Images/add.png";
 import styles from "./ShemePage.module.css";
 import {Image} from "antd";
 
@@ -93,12 +94,14 @@ const SchemePage = () => {
                 <div className={styles.tempReturn}>{tempReturn}</div>
                 <div className={styles.rawWater}>{rawWater}</div>
                 <Image src={scheme} preview={false}/>
-                <Image src={pipes} preview={false} rootClassName={styles.Img}/>
                 <Image src={waterParam} preview={false} rootClassName={styles.Img}/>
                 <Image src={boilerFirstParam} preview={false} rootClassName={styles.Img}/>
                 <Image src={boilerSecondParam} preview={false} rootClassName={styles.Img}/>
                 <Image src={boilerThirdParam} preview={false} rootClassName={styles.Img}/>
+                <Image src={pipes} preview={false} rootClassName={styles.Img}/>
+                <Image src={pipes} preview={false} rootClassName={styles.Img}/>
                 <Image src={all} preview={false} rootClassName={styles.Img}/>
+                <Image src={add} preview={false} rootClassName={styles.Img}/>
             </div>
     );
 };

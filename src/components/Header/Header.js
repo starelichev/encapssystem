@@ -26,7 +26,7 @@ export const Header = ({ isLoggedIn, setIsLoggedIn, userName, setIsAdmin }) => {
             role: regRole,
             password
         }
-
+        
         Registration(data)
     }
 
