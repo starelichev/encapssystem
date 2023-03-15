@@ -10,7 +10,6 @@ import boilerSecond from "../Images/firesecond.png";
 import boilerThird from "../Images/firethird.png";
 import pipes from "../Images/pipes.png";
 import all from "../Images/all.png";
-import add from "../Images/add.png";
 import styles from "./ShemePage.module.css";
 import {Image} from "antd";
 
@@ -78,31 +77,35 @@ const SchemePage = () => {
     }, [FetchBoilerThird])
 
     return (
-            <div className={styles.div}>
-                <div className={styles.tFirst}>{FetchBoilerFirst}</div>
-                <div className={styles.tSecond}>{FetchBoilerSecond}</div>
-                <div className={styles.tThird}>{FetchBoilerThird}</div>
-                <div className={styles.returnPressure}>{returnPressure}</div>
-                <div className={styles.boilerCircuit}>{boilerCircuit}</div>
-                <div className={styles.boilerCircuitStaticFirst}>3.553</div>
-                <div className={styles.boilerCircuitStaticThird}>0.291</div>
-                <div className={styles.pumpDifference}>{pumpDifference}</div>
-                <div className={styles.boilerCircuitFive}>3.870</div>
-                <div className={styles.boilerCircuitSeven}>4.967</div>
-                <div className={styles.pressureBefore}>{pressureBefore}</div>
-                <div className={styles.tempFiling}>{tempFiling}</div>
-                <div className={styles.tempReturn}>{tempReturn}</div>
-                <div className={styles.rawWater}>{rawWater}</div>
-                <Image src={scheme} preview={false}/>
-                <Image src={waterParam} preview={false} rootClassName={styles.Img}/>
-                <Image src={boilerFirstParam} preview={false} rootClassName={styles.Img}/>
-                <Image src={boilerSecondParam} preview={false} rootClassName={styles.Img}/>
-                <Image src={boilerThirdParam} preview={false} rootClassName={styles.Img}/>
-                <Image src={pipes} preview={false} rootClassName={styles.Img}/>
-                <Image src={pipes} preview={false} rootClassName={styles.Img}/>
-                <Image src={all} preview={false} rootClassName={styles.Img}/>
-                <Image src={add} preview={false} rootClassName={styles.Img}/>
-            </div>
+        <div className={styles.div}>
+            <div className={styles.tFirst}>{FetchBoilerFirst}</div>
+            <div className={styles.tSecond}>{FetchBoilerSecond}</div>
+            <div className={styles.tThird}>{FetchBoilerThird}</div>
+            <div className={styles.returnPressure}>{returnPressure}</div>
+            <div className={styles.boilerCircuit}>{boilerCircuit}</div>
+            <div className={styles.boilerCircuitStaticFirst}>3.553</div>
+            <div className={styles.boilerCircuitStaticThird}>2.65</div>
+            <div className={styles.pumpDifference}>{pumpDifference}</div>
+            <div className={styles.boilerCircuitFive}>2.65</div>
+            <div className={styles.boilerCircuitSeven}>4.967</div>
+            <div className={styles.pressureBefore}>{pressureBefore}</div>
+            <div className={styles.tempFiling}>{tempFiling}</div>
+            <div className={styles.tempReturn}>{tempReturn}</div>
+            <div className={styles.rawWater}>{rawWater}</div>
+            <div className={styles.bigClapan}>43%</div>
+            <div className={styles.gvs1}>-</div>
+            <div className={styles.gvs2}>-</div>
+            <div className={styles.gvs3}>-</div>
+            <div className={styles.gvs4}>-</div>
+            <Image src={scheme} preview={false}/>
+            <Image src={waterParam} preview={false} rootClassName={styles.Img}/>
+            <Image src={boilerFirstParam} preview={false} rootClassName={styles.Img}/>
+            <Image src={boilerSecondParam} preview={false} rootClassName={styles.Img}/>
+            <Image src={boilerThirdParam} preview={false} rootClassName={styles.Img}/>
+            <Image src={pipes} preview={false} rootClassName={styles.Img}/>
+            <Image src={pipes} preview={false} rootClassName={styles.Img}/>
+            <Image src={all} preview={false} rootClassName={styles.Img}/>
+        </div>
     );
 };
 
